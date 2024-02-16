@@ -17,10 +17,7 @@ def home():
 @app.route('/<message>', methods=['GET'])
 @cross_origin()
 def get_book(message: str):
-    @app.route("/")
-    @cross_origin()
-    def home():
-        return jsonify({"message": "Welcome"})
+    return jsonify({"message": "Welcome"})
 
 if __name__ == '__main__':
     app.run()
