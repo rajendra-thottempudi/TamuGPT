@@ -17,7 +17,7 @@ def home():
 @app.route('/<message>', methods=['GET'])
 @cross_origin()
 def get_book(message: str):
-    return jsonify({"message": "Welcome"})
+    return jsonify({"message": "I received this message from you: " + message})
 
 if __name__ == '__main__':
     app.run()
