@@ -44,7 +44,9 @@ def ask(
     message = query_message(query, model=model, token_budget=token_budget)
     if print_message:
         print(message)
-    openai.api_key = 'sk-proj-uB9Q1nd9ehV0fIdrxl2WT3BlbkFJoMCasTBMbjSkz0nVHGyj'
+    
+    secret_key = os.environ.get('SECRET_KEY')
+    openai.api_key = secret_key
     messages = [
         {"role": "system", "content": "You answer questions about Customer Service Management, ServiceNow."},
         {"role": "user", "content": message},
