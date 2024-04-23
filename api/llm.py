@@ -35,7 +35,7 @@ def query_message(
 def ask(
     query: str,
     model: str = "gpt-3.5-turbo",
-    token_budget: int = 1000 - 500,
+    token_budget: int = 4000,
     print_message: bool = False,
 ) -> str:
     """Answers a query using GPT and a dataframe of relevant texts and embeddings."""
@@ -52,7 +52,8 @@ def ask(
     response = openai.chat.completions.create(
         model=model,
         messages=messages,
-        temperature = 0
+        temperature = 0,
+        max_tokens = 2000,
     )
     # print(response)
     response_message = response.choices[0].message.content

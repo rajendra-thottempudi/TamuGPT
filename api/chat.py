@@ -3,7 +3,6 @@ from flask_cors import CORS, cross_origin
 from flask import jsonify
 from flask_cors import CORS
 from urllib.parse import unquote
-from data import upload
 from llm import ask
 
 
@@ -26,4 +25,4 @@ def get_book(message: str):
     return jsonify({"message": response})
 
 if __name__ == '__main__':
-    app.run()
+    app.run(port=8080)
