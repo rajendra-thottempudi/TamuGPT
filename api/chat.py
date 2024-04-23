@@ -25,12 +25,5 @@ def get_book(message: str):
     response = ask(message)
     return jsonify({"message": response})
 
-@app.route('/upload/<data>', methods=['POST'])
-@cross_origin()
-def upload_data(data: str):
-    data = unquote(data)
-    result = upload(data)
-    return jsonify({"message": "Data uploaded successfully", "result": result})
-
 if __name__ == '__main__':
     app.run()

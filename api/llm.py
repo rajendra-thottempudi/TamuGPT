@@ -1,9 +1,7 @@
-import ast  # for converting embeddings saved as strings back to arrays
 from data import getKClosest
 import openai  # for calling the OpenAI API
 import pandas as pd  # for storing text and embeddings data
 import tiktoken  # for counting tokens
-from scipy import spatial  # for calculating vector similarities for search
 import os
 
 def num_tokens(text: str, model: str = "gpt-3.5-turbo") -> int:
@@ -45,7 +43,7 @@ def ask(
     if print_message:
         print(message)
     
-    secret_key = os.getenv("OPENAI_API_KEY")
+    secret_key = os.environ.get('SECRET_KEY')
     openai.api_key = secret_key
     messages = [
         {"role": "system", "content": "You answer questions about Customer Service Management, ServiceNow."},
