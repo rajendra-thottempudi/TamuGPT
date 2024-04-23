@@ -1,7 +1,15 @@
 {
     "builds": [
         {
-            "src": "api/*.py",
+            "src": "api/chat.py",
+            "use": "@vercel/python"
+        },
+        {
+            "src": "api/data.py",
+            "use": "@vercel/python"
+        },
+        {
+            "src": "api/llm.py",
             "use": "@vercel/python"
         }
     ],
