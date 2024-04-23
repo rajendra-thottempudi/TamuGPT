@@ -47,7 +47,7 @@ def getKClosest(question):
   db_index = getPineConeIndex()
   query_vector = [question]
   embed = getEmbedding(query_vector)
-  closest = db_index.query(vector = embed, top_k = 20, include_metadata=True)  
+  closest = db_index.query(vector = embed, top_k = 50, include_metadata=True)  
   # print(closest)
   closest_strings = []
   
