@@ -45,7 +45,7 @@ def ask(
     if print_message:
         print(message)
     
-    secret_key = os.environ.get('SECRET_KEY')
+    secret_key = os.getenv("OPENAI_API_KEY")
     openai.api_key = secret_key
     messages = [
         {"role": "system", "content": "You answer questions about Customer Service Management, ServiceNow."},
