@@ -2,4 +2,15 @@
 
 flask==3.0.0
 flask-cors==3.0.0
+llama-index-embeddings-huggingface
+llama_index
+torch
+llama-index
+langchain
+pinecone-client
+astroid
+openai
+pandas
+tiktoken
+scipy
 # other required dependencies

@@ -3,6 +3,8 @@ from flask_cors import CORS, cross_origin
 from flask import jsonify
 from flask_cors import CORS
 from urllib.parse import unquote
+from data import upload
+from llm import ask
 
 
 app = Flask(__name__)
@@ -20,7 +22,15 @@ def home():
 @cross_origin()
 def get_book(message: str):
     message = unquote(message)
-    return jsonify({"message": "I received this message from you: " + message})
+    response = ask(message)
+    return jsonify({"message": response})
+
+@app.route('/upload/<data>', methods=['POST'])
+@cross_origin()
+def upload_data(data: str):
+    data = unquote(data)
+    result = upload(data)
+    return jsonify({"message": "Data uploaded successfully", "result": result})
 
 if __name__ == '__main__':
     app.run()
