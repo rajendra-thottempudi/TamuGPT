@@ -38,7 +38,7 @@ def getEmbedding(sentence):
 
 def getPineConeIndex():
   apiKey = os.environ.get('PINECONE_KEY')
-  index_name = os.environ.get('PINECONE_INDEX')
+  index_name = os.environ.get('rithin-openai')
   pc = Pinecone(api_key=apiKey)
   index = pc.Index(index_name)
   return index
